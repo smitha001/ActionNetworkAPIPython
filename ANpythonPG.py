@@ -27,7 +27,11 @@ class ANimport():
             self.link = requests.get(self.link["_links"]["next"]["href"] + "&background_request=true", headers =self.my_headers).json()
             self.tables[table_string] = self.tables[table_string] + self.link["_embedded"]["osdi:" + table_string]
             print(str(len(self.tables[table_string])) + " " + table_string)
-        
+            
+    def status(self):
+        print("Downloaded items")
+        for t in list(self.tables.keys()):
+            print(str(len(self.tables[t])) + " " + t)
 
     
             
@@ -44,6 +48,8 @@ ai.get_all_of_table("tags")
 ai.get_all_of_table("lists")
 ai.get_all_of_table("wrappers")
 ai.get_all_of_table("messages")
+
+ai.status()
 #ai.get_all_of_table("person_signup_helper") - this didn't work
 #ai.get_all_of_table("advocacy_campaigns") - this didn't work
 #ai.get_all_of_table("metadata") - this didn't work
