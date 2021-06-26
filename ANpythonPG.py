@@ -8,7 +8,7 @@ import requests
 import dataset
 
 class ANimport():
-    my_headers = {'OSDI-API-Token' : 'e08d0fc56391ce71fdcc71c91eae45d5'}
+    my_headers = {'OSDI-API-Token' : 'your_api_key_goes_here'}
     tables = {}
     link = ""
     def connect_an(self):
